@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02_JSX基本语法</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="./lib/react.js"></script>
+    <script src="./lib/react-dom.js"></script>
+    <script src="./lib/babel.js"></script>
+
+    <script type="text/babel">
+      const isReady = true;
+      const students = [
+        { id: 112, name: "张三丰", score: 99 },
+        { id: 113, name: "张三丰1", score: 40 },
+        { id: 112, name: "张三丰2", score: 99 },
+        { id: 112, name: "张三丰3", score: 99 },
+      ];
+      const element = (
+        <div>
+          <h2>学生列表</h2>
+          <div className="item">
+            {students
+              .filter((item) => item.score > 20)
+              .map((item) => {
+                return (
+                  <div key={item.id}>
+                    <h2>学号：{item.id}</h2>
+                    <h2>名字：{item.name}</h2>
+                    <h2>分数：{item.score}</h2>
+                  </div>
+                );
+              })}
+          </div>
+        </div>
+      );
+
+      const root = ReactDOM.createRoot(document.querySelector("#root"));
+      root.render(element);
+    </script>
+  </body>
+</html>

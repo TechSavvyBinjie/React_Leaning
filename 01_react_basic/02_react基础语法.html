@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02_JSX基本语法</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="./lib/react.js"></script>
+    <script src="./lib/react-dom.js"></script>
+    <script src="./lib/babel.js"></script>
+
+    <script type="text/babel">
+      const msg = "zhangsan";
+      const n = 10;
+      const title = "孙欣慰脑海";
+      const imgUrl =
+        "https://public-cdn-oss.mosoteach.cn/avatar/2022/A0/28865c793f80fdfa5e327960961d20c8.jpg?v=1725255800&x-oss-process=style/s300x300";
+      const href = "https://www.baidu.com/";
+      const objStyle = { color: "red", fontSize: "30px" };
+      const element = (
+        <div>
+          <h2>Hello JSX</h2>
+          <h3>{msg}</h3>
+          <h4>计算:{10 * n}</h4>
+          <h1 title={title}>我是h1元素</h1>
+          <img src={imgUrl} alt="图片" style={{ width: "80px" }} />
+          <p>
+            <a href={href}>百度一下</a>
+          </p>
+          <div style={objStyle}>有样式的文字</div>
+        </div>
+      );
+      const root = ReactDOM.createRoot(document.querySelector("#root"));
+      root.render(element);
+    </script>
+  </body>
+</html>

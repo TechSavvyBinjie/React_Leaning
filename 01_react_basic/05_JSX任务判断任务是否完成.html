@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02_JSX基本语法</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="./lib/react.js"></script>
+    <script src="./lib/react-dom.js"></script>
+    <script src="./lib/babel.js"></script>
+
+    <script type="text/babel">
+      const isReady = true;
+      const taskList = [
+        {
+          id: 1,
+          name: "吃饭",
+          completed: true,
+        },
+        {
+          id: 2,
+          name: "睡觉",
+          completed: false,
+        },
+        {
+          id: 3,
+          name: "敲代码",
+          completed: false,
+        },
+      ];
+      const number = taskList.filter((item) => item.completed == true).length;
+      const element = (
+        <div>
+          <h2>完成任务：{number}</h2>
+          <div>
+            {taskList.map((item) => {
+              return (
+                <div key={item.id}>
+                  {item.completed ? (
+                    <div style={{ color: item.completed ? "red" : "green" }}>
+                      <h2>任务id: {item.id}</h2>
+                      <h2>名字：{item.name}</h2>
+                    </div>
+                  ) : (
+                    <div style={{ color: "red" }}>
+                      <h2>学号：{item.id}</h2>
+                      <h2>名字：{item.name}</h2>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      );
+
+      const root = ReactDOM.createRoot(document.querySelector("#root"));
+      root.render(element);
+    </script>
+  </body>
+</html>

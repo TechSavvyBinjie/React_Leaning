@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02_JSX基本语法</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="./lib/react.js"></script>
+    <script src="./lib/react-dom.js"></script>
+    <script src="./lib/babel.js"></script>
+
+    <script type="text/babel">
+      const root = ReactDOM.createRoot(document.querySelector("#root"));
+      let message = "hello";
+      let count = 0;
+      const colors = [
+        "#FF5733", // 橙红色
+        "#33FF57", // 绿色
+        "#3357FF", // 蓝色
+        "#FF33A1", // 粉红色
+        "#FFD633", // 黄色
+        "#33FFD6", // 青色
+        "#A133FF", // 紫色
+      ];
+      const oncl = () => {
+        count++;
+        rootRender();
+      };
+      const rootRender = () => {
+        root.render(
+          <div>
+            <h2 style={{ color: colors[count % 6] }}>你已经点击{count}次</h2>
+            <button onClick={oncl}>点击改变</button>
+            <div>{count > 5 ? <h2>你已经成就彩虹大师</h2> : <h2></h2>}</div>
+          </div>
+        );
+      };
+      rootRender();
+    </script>
+  </body>
+</html>
