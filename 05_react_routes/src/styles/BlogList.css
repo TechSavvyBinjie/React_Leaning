@@ -1,0 +1,28 @@
+.blog-list {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.blog-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.blog-list li {
+  margin-bottom: 20px;
+}
+
+.blog-list a {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 1.2em;
+}
+
+.blog-list p {
+  color: #666;
+  font-size: 1em;
+}
